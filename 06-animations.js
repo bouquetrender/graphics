@@ -34,6 +34,13 @@ renderer.render(scene, camera)
 // let time = Date.now()
 const clock = new THREE.Clock()
 
+// gasp
+gsap.to(mesh.position, {
+    duration: 1,
+    delay: 1,
+    x: 2
+})
+
 // Animations
 const tick = () => {
     // const currentTime = Date.now()
@@ -47,16 +54,10 @@ const tick = () => {
     // mesh.rotation.y = elapsedTime * Math.PI
     // mesh.rotation.y = Math.sin(elapsedTime * 2)
     // mesh.rotation.x = Math.cos(elapsedTime * 2)
-    // camera.position.y = Math.sin(elapsedTime * 2)
-    // camera.position.x = Math.cos(elapsedTime * 2)
-    // camera.lookAt(mesh.position)
-    
-    gsap.to(mesh.position, {
-        duration: 1,
-        delay: 1,
-        x: Math.cos(elapsedTime * 2),
-        y: Math.sin(elapsedTime * 2)
-    })
+    camera.position.y = Math.sin(elapsedTime * 2)
+    camera.position.x = Math.cos(elapsedTime * 2)
+    camera.lookAt(mesh.position)
+
 
     // render
     renderer.render(scene, camera)
